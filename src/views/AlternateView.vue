@@ -1,10 +1,10 @@
 <script setup>
-import AlternateComp from '@/components/AlternateComp.vue'
+import ExampleFetch from '@/components/ExampleFetch.vue'
 </script>
 
 <template>
   <div class="alternate"></div>
-  <AlternateComp />
+  <ExampleFetch />
 </template>
 
 <style></style>

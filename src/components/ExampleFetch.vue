@@ -1,10 +1,9 @@
 <script>
 export default {
-  name: 'TheFetch',
+  name: 'ExampleFetch',
   props: {
     msg: String
   },
-
   data() {
     return {
       theData: {},
@@ -54,9 +53,11 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="search">
+    <h1 class="green">{{ msg }}</h1>
+
     <input v-model="searchString" placeholder="query" />
-    <button id="fetchButton" @click="fetchData">Click me for Data!</button>
+    <button @click="fetchData">fetch data</button>
 
     <p>Total: {{ total }}</p>
 
@@ -76,15 +77,14 @@ export default {
 </template>
 
 <style scoped>
-#fetchButton {
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px;
+h1 {
+  font-weight: 500;
+  font-size: 2.6rem;
+  position: relative;
+  top: -10px;
 }
-.list-v {
-  list-style-type: none;
-  padding: 0;
+
+h3 {
+  font-size: 1.2rem;
 }
 </style>
