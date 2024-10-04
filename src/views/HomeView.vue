@@ -1,9 +1,11 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import TheFetch from '@/components/TheFetch.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <TheFetch />
   </main>
 </template>
+
+<style></style>
