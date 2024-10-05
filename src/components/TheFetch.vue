@@ -74,35 +74,42 @@ export default {
 
 <template>
   <div>
-    <input class="searchContainer" id="searchBar" v-model="searchString" placeholder="query" />
-    <button class="searchContainer" id="fetchButton" @click="fetchData">Click me!</button>
+    <div class="searchContainer">
+      <input class="searchContainer" id="searchBar" v-model="searchString" placeholder="query" />
+      <button class="searchContainer" id="fetchButton" @click="fetchData">Click me!</button>
+    </div>
 
     <p>Total: {{ total }}</p>
 
-    <ul role="list" class="list-v">
-      <li v-for="(result, index) in resultSet" :key="result[index]">
-        <h2>{{ result['title'] }}</h2>
-        <p>{{ result['name'] }}</p>
-        <p>{{ result['id'] }}</p>
-        <p>{{ result['subMedium'] }}</p>
+    <div v-if="resultSet.length === 0">
+      <p>No results found</p>
+    </div>
+    <div>
+      <ul role="list" class="list-v">
+        <li v-for="(result, index) in resultSet" :key="result[index]">
+          <h2>{{ result['title'] }}</h2>
+          <p>{{ result['name'] }}</p>
+          <p>{{ result['id'] }}</p>
+          <p>{{ result['subMedium'] }}</p>
 
-        <img
-          v-if="result['preview'] && result['preview'][0]"
-          v-bind:src="imgURL + result['preview'][0]['filePath']"
-          v-bind:alt="result['name']"
-          v-bind:title="result['name']"
-        />
-      </li>
-    </ul>
+          <img
+            v-if="result['preview'] && result['preview'][0]"
+            v-bind:src="imgURL + result['preview'][0]['filePath']"
+            v-bind:alt="result['name']"
+            v-bind:title="result['name']"
+          />
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .searchContainer {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
 }
 #fetchButton {
   background-color: #333;
@@ -128,6 +135,10 @@ export default {
 }
 
 .list-v {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   list-style-type: none;
   padding: 0;
 }
