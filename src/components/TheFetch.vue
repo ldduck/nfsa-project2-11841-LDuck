@@ -15,7 +15,7 @@ export default {
       total: 0,
       imgURL: 'https://media.nfsacollection.net/',
       query: 'https://api.collection.nfsa.gov.au/search?limit=25&query=',
-      searchString: 'war'
+      searchString: 'search'
     }
   },
 
@@ -74,8 +74,8 @@ export default {
 
 <template>
   <div>
-    <input v-model="searchString" placeholder="query" />
-    <button id="fetchButton" @click="fetchData">Click me for Data!</button>
+    <input class="searchContainer" id="searchBar" v-model="searchString" placeholder="query" />
+    <button class="searchContainer" id="fetchButton" @click="fetchData">Click me!</button>
 
     <p>Total: {{ total }}</p>
 
@@ -98,6 +98,12 @@ export default {
 </template>
 
 <style scoped>
+.searchContainer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 #fetchButton {
   background-color: #333;
   color: white;
@@ -105,6 +111,22 @@ export default {
   border-radius: 5px;
   margin: 10px;
 }
+#fetchButton:hover {
+  background-color: #555;
+  cursor: pointer;
+}
+#fetchButton:active {
+  transform: scale(0.95);
+  transition: transform 0.1s;
+}
+#searchBar {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  width: 50%;
+  font-size: 1.2em;
+}
+
 .list-v {
   list-style-type: none;
   padding: 0;
