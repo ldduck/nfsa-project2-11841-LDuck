@@ -6,7 +6,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
+  base: '/nfsa-project2-11841-LDuck/',
   plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
