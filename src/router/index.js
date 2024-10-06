@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AlternateView from '../views/AlternateView.vue'
+import InfoView from '../views/InfoView.vue'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -11,9 +11,9 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/alternate',
-      name: 'alternate',
-      component: AlternateView
+      path: '/details',
+      name: 'details',
+      component: InfoView
     }
   ]
 })

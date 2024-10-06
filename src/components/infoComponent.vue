@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'AlternateComp'
+  name: 'infoComponent'
 }
 </script>
 

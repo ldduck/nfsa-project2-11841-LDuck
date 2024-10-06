@@ -15,7 +15,7 @@ export default {
       total: 0,
       imgURL: 'https://media.nfsacollection.net/',
       query: 'https://api.collection.nfsa.gov.au/search?limit=25&query=',
-      searchString: 'search'
+      searchString: 'I want to find...'
     }
   },
 
@@ -76,21 +76,24 @@ export default {
   <div>
     <div class="searchContainer">
       <input class="searchContainer" id="searchBar" v-model="searchString" placeholder="query" />
-      <button class="searchContainer" id="fetchButton" @click="fetchData">Click me!</button>
+      <button class="searchContainer" id="fetchButton" @click="fetchData">search</button>
     </div>
+    <div id="resultsInfo">
+      <p>Total Results: {{ total }}</p>
 
-    <p>Total: {{ total }}</p>
-
-    <div v-if="resultSet.length === 0">
-      <p>No results found</p>
+      <div v-if="resultSet.length === 0">
+        <p>No results found</p>
+      </div>
     </div>
-    <div>
+    <div class="resultListing">
       <ul role="list" class="list-v">
         <li v-for="(result, index) in resultSet" :key="result[index]">
-          <h2>{{ result['title'] }}</h2>
-          <p>{{ result['name'] }}</p>
-          <p>{{ result['id'] }}</p>
-          <p>{{ result['subMedium'] }}</p>
+          <h2 class="resultTitle">{{ result['title'] }}</h2>
+          <div>
+            <p>{{ result['name'] }}</p>
+            <p>{{ result['id'] }}</p>
+            <p>{{ result['subMedium'] }}</p>
+          </div>
 
           <img
             v-if="result['preview'] && result['preview'][0]"
@@ -120,12 +123,12 @@ export default {
   background-color: #ffffff;
   color: green;
   border: 2px solid green;
+  box-shadow: 0.5rem 0.5rem green;
 
   padding: 20px 50px;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 1.8em;
   margin: auto;
-  box-shadow: 0.5rem 0.5rem green;
 }
 #fetchButton:hover {
   background-color: green;
@@ -142,8 +145,8 @@ export default {
   width: 50%;
   text-align: center;
 
-  font-weight: bold;
-  font-size: 1em;
+  font-weight: regular;
+  font-size: 1.3em;
   border: 2px solid green;
   color: green;
 }
@@ -154,32 +157,53 @@ export default {
 #searchBar:focus {
   outline: none;
 }
-
-/* list and content styling */
-.list-v {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1em;
-
+#resultsInfo {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  width: 80%;
-  margin: 0 auto;
-  list-style-type: none;
-  padding: 0;
+  margin: 1em auto;
+  padding: 1em;
 }
-.list-v img {
-  width: 50%;
-  height: auto;
+
+/* list and content styling */
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+  gap: 1em;
+}
+li {
+  max-width: 400px;
   margin: 1em;
+  padding: 1em;
+  border: 2px solid green;
+}
+img {
+  display: inline-block;
+  max-width: 100%;
+
   border: 2px solid green;
   /* box-shadow: 0.5rem 0.5rem green; */
 }
-.list-v h2 {
+.resultListing {
+  border-bottom: 2px solid green;
+}
+
+.resultTitle {
   /* color: green; */
   font-size: 1.5em;
   font-weight: bold;
+}
+/* media queries */
+@media (max-width: 1080px) {
+  #searchBar {
+    width: 100%;
+  }
+  #fetchButton {
+    padding: 10px 25px;
+  }
 }
 </style>
