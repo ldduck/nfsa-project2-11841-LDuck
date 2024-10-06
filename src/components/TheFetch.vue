@@ -105,41 +105,81 @@ export default {
 </template>
 
 <style scoped>
+/* search bar and button styling */
 .searchContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px auto;
+  margin: 1em auto;
+  flex-direction: column;
+  padding: 4em;
+
+  border-bottom: 2px solid green;
 }
 #fetchButton {
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px;
+  background-color: #ffffff;
+  color: green;
+  border: 2px solid green;
+
+  padding: 20px 50px;
+  font-weight: bold;
+  font-size: 30px;
+  margin: auto;
+  box-shadow: 0.5rem 0.5rem green;
 }
 #fetchButton:hover {
-  background-color: #555;
+  background-color: green;
+  color: #ffffff;
   cursor: pointer;
+  box-shadow: 0.5rem 0.5rem #ffffff;
 }
 #fetchButton:active {
   transform: scale(0.95);
   transition: transform 0.1s;
 }
 #searchBar {
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px;
+  padding: 10px 25px;
   width: 50%;
-  font-size: 1.2em;
+  text-align: center;
+
+  font-weight: bold;
+  font-size: 1em;
+  border: 2px solid green;
+  color: green;
+}
+#searchBar:active {
+  transform: scale(0.95);
+  transition: transform 0.1s;
+}
+#searchBar:focus {
+  outline: none;
 }
 
+/* list and content styling */
 .list-v {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1em;
+
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
   list-style-type: none;
   padding: 0;
+}
+.list-v img {
+  width: 50%;
+  height: auto;
+  margin: 1em;
+  border: 2px solid green;
+  /* box-shadow: 0.5rem 0.5rem green; */
+}
+.list-v h2 {
+  /* color: green; */
+  font-size: 1.5em;
+  font-weight: bold;
 }
 </style>
