@@ -91,8 +91,8 @@ export default {
           <h2 class="resultTitle">{{ result['title'] }}</h2>
           <div>
             <p>{{ result['name'] }}</p>
-            <p>{{ result['id'] }}</p>
-            <p>{{ result['subMedium'] }}</p>
+            <p>NFSA ID: {{ result['id'] }}</p>
+            <p>Medium: {{ result['subMedium'] }}</p>
           </div>
 
           <img
@@ -101,6 +101,9 @@ export default {
             v-bind:alt="result['name']"
             v-bind:title="result['name']"
           />
+          <div>
+            <p class="resultSummary">{{ result['summary'] }}</p>
+          </div>
         </li>
       </ul>
     </div>
@@ -116,6 +119,8 @@ export default {
   margin: 1em auto;
   flex-direction: column;
   padding: 4em;
+
+  font-family: Chivo, sans-serif;
 
   border-bottom: 2px solid green;
 }
@@ -186,19 +191,24 @@ img {
   max-width: 100%;
 
   border: 2px solid green;
-  /* box-shadow: 0.5rem 0.5rem green; */
 }
 .resultListing {
   border-bottom: 2px solid green;
 }
-
 .resultTitle {
-  /* color: green; */
   font-size: 1.5em;
   font-weight: bold;
 }
+.resultSummary {
+  padding-top: 1em;
+}
 /* media queries */
 @media (max-width: 1080px) {
+  .searchContainer {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+  }
   #searchBar {
     width: 100%;
   }

@@ -1,10 +1,10 @@
 <script setup>
-import InfoComponent from '@/components/infoComponent.vue'
+import TheFetch from '@/components/TheFetch.vue'
 </script>
 
 <template>
   <div>
-    <InfoComponent />
+    <TheFetch />
   </div>
 </template>
 

@@ -5,8 +5,8 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <div id="app">
     <nav class="links">
-      <RouterLink to="/">Home</RouterLink> |
-      <RouterLink to="/details">Details</RouterLink>
+      <RouterLink to="/">HOME</RouterLink> |
+      <RouterLink to="/search">SEARCH</RouterLink>
     </nav>
 
     <RouterView />
@@ -26,6 +26,7 @@ nav {
   color: green;
   font-size: 1.2rem;
   font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
 }
 .links a:hover {
   color: #ffffff;

@@ -1,10 +1,10 @@
 <script setup>
-import TheFetch from '@/components/TheFetch.vue'
+import LandingComponent from '@/components/landingComponent.vue'
 </script>
 
 <template>
   <main>
-    <TheFetch />
+    <LandingComponent />
   </main>
 </template>
 
