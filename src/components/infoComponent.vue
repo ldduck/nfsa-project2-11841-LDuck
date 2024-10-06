@@ -5,29 +5,30 @@ export default {
 </script>
 
 <template>
-  <div class="alternateIntro">
-    <h1>This will become.... something?</h1>
-    <p>If you can see this text then the component is working correctly.</p>
+  <div class="infoContainer">
+    <div class="infoTitle">
+      <h1>This will become.... something?</h1>
+    </div>
+    <div class="infoBody">
+      <p>If you can see this text then the component is working correctly.</p>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.alternateIntro {
-  background-color: #333;
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
   padding: 20px;
-  border-radius: 5px;
+  border-bottom: 2px solid green;
 }
 
-h1 {
-  color: #ffcc00; /* Bright yellow for good contrast */
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-}
-
-p {
-  color: #00ccff; /* Bright cyan for good contrast */
-  font-size: 1.2rem;
+/* media queries */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2rem;
+  }
 }
 </style>

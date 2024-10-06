@@ -17,17 +17,26 @@ import { RouterLink, RouterView } from 'vue-router'
 nav {
   display: flex;
   gap: 10px;
-  background-color: #333;
   padding: 20px;
-  border-radius: 5px;
+
+  border-bottom: 2px solid green;
 }
 .links a {
   text-decoration: none;
-  color: white;
+  color: green;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.links a:hover {
+  color: #ffffff;
+  background-color: green;
 }
 
-.links :visited {
-  color: #ffcc00;
-  font-size: 1.2rem;
+/* media queries */
+@media (max-width: 1024px) {
+  nav {
+    flex-direction: column;
+    gap: 5px;
+  }
 }
 </style>
